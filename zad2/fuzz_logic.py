@@ -34,21 +34,21 @@ growth = ctrl.Consequent(np.arange(0, 8, 1), 'growth')
 """
 initialization of arguments assesment as labels 
 """
-ph['alkaline'] = fuzz.trimf(ph.universe, [0, 0, 6])
+ph['alkaline'] = fuzz.trimf(ph.universe, [0, 0, 7])
 ph['average'] = fuzz.trimf(ph.universe, [6, 7, 8])
-ph['acidic'] = fuzz.trimf(ph.universe, [8, 14, 14])
+ph['acidic'] = fuzz.trimf(ph.universe, [7, 14, 14])
 
-temp['low'] = fuzz.trimf(temp.universe, [0, 0, 17])
-temp['medium'] = fuzz.trimf(temp.universe, [17, 23, 25])
-temp['high'] = fuzz.trimf(temp.universe, [25, 35, 35])
+temp['low'] = fuzz.trimf(temp.universe, [0, 0, 20])
+temp['medium'] = fuzz.trimf(temp.universe, [17, 23, 26])
+temp['high'] = fuzz.trimf(temp.universe, [24, 35, 35])
 
-humidity['low'] = fuzz.trimf(humidity.universe, [0, 0, 5])
-humidity['medium'] = fuzz.trimf(humidity.universe, [5, 6, 7])
+humidity['low'] = fuzz.trimf(humidity.universe, [0, 0, 6])
+humidity['medium'] = fuzz.trimf(humidity.universe, [4, 6, 8])
 humidity['high'] = fuzz.trimf(humidity.universe, [7, 10, 10])
 
 growth['fast'] = fuzz.trimf(growth.universe, [0, 0, 3])
-growth['medium'] = fuzz.trimf(growth.universe, [3, 5, 6])
-growth['long'] = fuzz.trimf(growth.universe, [6, 8, 8])
+growth['medium'] = fuzz.trimf(growth.universe, [2, 5, 6])
+growth['long'] = fuzz.trimf(growth.universe, [4, 8, 8])
 
 """
 Print graph for each argument scale and assesment 

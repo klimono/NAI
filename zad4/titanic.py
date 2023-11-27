@@ -14,7 +14,7 @@ Preparing the environment:
     to install  use command: "pip install <name of library >"
 
 Preparing data:
-    Most of the columns have been removed because they cannot interfere with the effectiveness of the model.
+    Most of the columns have been removed because they can interfere with the effectiveness of the model.
     Rows that do not contain the passenger's age have been deleted.
 """
 
@@ -44,7 +44,7 @@ def draw_decision_tree(tree, headers, class_name, title):
 
 
 '''data preparation'''
-df = pd.read_csv('titanic.csv')
+df = pd.read_csv('data/titanic.csv')
 df.drop(columns=['Cabin', 'Ticket', 'Name', 'PassengerId', 'Fare', 'SibSp', 'Parch', 'Embarked'], inplace=True)
 df.drop(df.loc[df.Age.isnull()].index, inplace=True)
 df['Sex'].replace(['male', 'female'], [0, 1], inplace=True)
@@ -94,6 +94,11 @@ print('Decision tree accuracy:', decision_tree_accuracy)
 print('Random forest accuracy:', random_forest_accuracy)
 print('SVM accuracy:', svm_accuracy)
 
-plt.bar(['Decision Tree', 'Random Forest', 'SVM'], [decision_tree_accuracy, random_forest_accuracy, svm_accuracy])
+classifier = ['Decision Tree', 'Random Forest', 'SVM']
+classifier_accuracy = [decision_tree_accuracy, random_forest_accuracy, svm_accuracy]
+
+plt.bar(classifier, classifier_accuracy)
 plt.ylabel('accuracy')
+for i, value in enumerate(classifier_accuracy):
+    plt.text(i, 0.5, str(value), ha='center', va='bottom')
 plt.show()

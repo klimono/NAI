@@ -38,7 +38,7 @@ def draw_decision_tree(tree, headers, class_name, title):
 
 
 '''data preparation'''
-df = pd.read_csv('wheat.csv')
+df = pd.read_csv('data/wheat.csv')
 headers = df.columns
 
 X = df.iloc[:, :-1]
@@ -83,6 +83,11 @@ print('Decision tree accuracy:', decision_tree_accuracy)
 print('Random forest accuracy:', random_forest_accuracy )
 print('SVM accuracy:', svm_accuracy)
 
-plt.bar(['Decision Tree', 'Random Forest', 'SVM'],[decision_tree_accuracy, random_forest_accuracy, svm_accuracy])
+classifier = ['Decision Tree', 'Random Forest', 'SVM']
+classifier_accuracy = [decision_tree_accuracy, random_forest_accuracy, svm_accuracy]
+
+plt.bar(classifier, classifier_accuracy)
 plt.ylabel('accuracy')
+for i, value in enumerate(classifier_accuracy):
+    plt.text(i, 0.5, str(value), ha='center', va='bottom')
 plt.show()
